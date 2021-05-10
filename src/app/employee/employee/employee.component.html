@@ -1,0 +1,77 @@
+<ng-template #elseBlock>
+  <div class="container todolist">
+    <h3 class="text-center">Trwa ładowanie danych</h3>
+    <h3 class="text-center"> <i id="hourglass" class="material-icons">hourglass_empty</i></h3>
+  </div>
+</ng-template>
+<div class="text-center todolist">
+  <button class="btn btn-primary btn-lg" routerLink="add-employee">
+    Dodaj nowe zadanie
+    <!-- <i class="material-icons">add</i> -->
+  </button><br>
+<!-- Aktualnie masz -->
+</div>
+<div *ngIf="employees; else elseBlock" class="album bg-light py-sm-0 py-md-1">
+
+  <div class="container border-bottom border-success mb-2 py-1" *ngFor="let emp of employees;let i=index">
+
+    <div class="section1">
+    <h4 class="text-center">{{emp.title}}</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      <div class="col">
+        <div class="card shadow-sm contentText">
+          <div class="card-body">
+            <p class="card-text">Opis:
+              <span class="font-italic"> {{emp.description}}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm contentText">
+          <div class="card-body">
+            <p class="card-text">Koszty:
+              <span class="font-italic"> {{emp.body}}</span>
+            </p>
+
+            <!-- <small class="text-muted">{{emp.tags}}nmn</small> -->
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm contentText">
+          <div class="card-body">
+            <p class="card-text">Termin końcowy:
+              <span class="font-italic"> {{emp.deadline}}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <p class="card-text">Tagi:{{emp.tags}}
+            </p>
+
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+    <div class="d-flex justify-content-around align-items-center">
+      <!-- <div class="btn-group text-center"> -->
+      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edytuj</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Usuń</button> -->
+      <!-- </div> -->
+      <button class="btn btn-primary btn-sm my-1" routerLink="edit/{{emp.title}}">Edytuj</button>
+      <button class="btn btn-danger btn-sm my-1 danger" (click)="deleteItem(emp.title)">Usuń</button>
+
+    </div>
+
+  </div>
+  </div>

@@ -1,0 +1,58 @@
+
+body{
+  background-image: '../../../assets/background.jpg';
+}
+
+.todolist{
+margin-top: 70px;
+margin-bottom: 10px;
+}
+
+.danger{
+  background-color: rgb(214, 101, 66);
+}
+
+
+
+.contentText{
+  background: rgb(250, 250, 142);
+  border-radius: 5%;
+
+}
+
+@media (max-width: 576px) {
+  h4 {
+      font-size: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+      width: 80%;
+  }
+  div{
+    font-size: 22px;
+  }
+}
+
+#hourglass{
+  color:#26a69a;
+
+  font-size: 40px;
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  } to {
+      transform: rotate(360deg);
+  }
+}
+
+div.section1:nth-child(2){
+  background-color: aqua;
+}
+

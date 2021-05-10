@@ -1,0 +1,47 @@
+<div class="container todolist">
+  <form (ngSubmit)="updateData()" [formGroup]="form">
+    <div class="form-group">
+      <label for="name">Nazwa</label>
+      <input type="text" maxlength="30" formControlName="title"
+        class="form-control" >
+
+    </div>
+    <div class="form-group">
+      <label for="email">Opis</label>
+      <input type="text" maxlength="110" formControlName="description"  class="form-control" >
+
+
+    </div>
+    <div class="form-group">
+      <label for="salary">Koszty</label>
+      <input type="text" maxlength="110" formControlName="body"  class="form-control" placehoder='data.body'>
+
+
+
+    </div>
+    <div class="form-group">
+      <label for="deadline">Data końcowa</label>
+      <input type="date" min="{{today|date:'yyyy-MM-dd'}}" formControlName="deadline"  class="form-control" >
+
+
+    </div>
+
+    <div class="d-flex justify-content-around align-items-center">
+      <!-- <div class="btn-group text-center"> -->
+      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edytuj</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Usuń</button> -->
+      <!-- </div> -->
+      <button class="btn btn-primary btn-sm my-1" >Zapisz</button>
+      <button class="btn btn-primary btn-sm my-1 cancelBtn" routerLink="/">Anuluj</button>
+
+    </div>
+
+
+
+    <!-- <div class="form-group">
+      <button class="btn btn-dark btn-sm mt-4">Submit</button>
+    </div> -->
+  </form>
+
+</div>
+

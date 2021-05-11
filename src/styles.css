@@ -5,3 +5,12 @@
   a{
     text-decoration: none;
   }
+
+  body{
+    /* background-image: '../../../assets/background.jpg'; */
+    background:url(/assets/bg3.jpg);
+    background-size:cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+  }

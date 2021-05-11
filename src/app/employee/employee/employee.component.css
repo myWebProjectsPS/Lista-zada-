@@ -1,6 +1,11 @@
 
-body{
-  background-image: '../../../assets/background.jpg';
+.image{
+  /* background-image: '../../../assets/background.jpg'; */
+  background:url(../../../assets/background.jpg);
+  background-size:cover;
+  background-position: top;
+  background-repeat: no-repeat;
+
 }
 
 .todolist{

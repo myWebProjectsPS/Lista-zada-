@@ -22,12 +22,12 @@ export class AddEmployeeComponent implements OnInit {
 
   createForm() {
     this.form = this.formBuilder.group({
-      title: ['Praca', Validators.required],
-      description: ['', [Validators.required]],//validatory to observable
-      body: ['0 zł', []],
+      title: ['', Validators.required],
+      description: ['', []],//validatory to observable
+      body: ['', []],
       //tags: ['1000222',[]],
-      deadline:['jutro', Validators.required],
-      id:[this.EmployeeService.makeHash(),[]]
+      deadline:['', []],
+      id:[this.EmployeeService.getHash(),[]]
     })
   }
 
@@ -47,15 +47,15 @@ export class AddEmployeeComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log("insert")
+   // console.log("insert")
     //console.log(this.form.value);
 
     this.EmployeeService.insertData(this.form.value).subscribe(res => {
       this.data = res;
-      console.log("insert ",res)
-      this.toastr.success(JSON.stringify(res), "Dane zostały wpisane",
+     // console.log("insert ",res)
+      this.toastr.success('', "Zadanie zostało dodane",
         {
-          timeOut: 2000,
+          timeOut: 1000,
           progressBar: true
         }
       );

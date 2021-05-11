@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { CookieService } from 'ngx-cookie-service';
 
 const appRoutes: Routes = [
   { path: "", component: EmployeeComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,7 +13,7 @@
 </div>
 <div *ngIf="employees; else elseBlock" class="album bg-light py-sm-0 py-md-1 ">
 
-  <div class="container border-bottom border-success mb-2 py-1 " *ngFor="let emp of employees;let i=index">
+  <div class="container border-bottom border-success mb-2 py-1 px-0 " *ngFor="let emp of employees;let i=index">
 
     <div class="section1">
     <h4 class="text-center">{{emp.title}}</h4>
@@ -45,7 +45,7 @@
       <div class="col">
         <div class="card shadow-sm contentText">
           <div class="card-body">
-            <p class="card-text">Termin końcowy:
+            <p class="card-text">Termin końcowy:<br>
               <span class="font-italic"> {{emp.deadline}}</span>
             </p>
           </div>

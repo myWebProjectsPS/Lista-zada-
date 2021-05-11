@@ -1,8 +1,27 @@
+
+label{
+  font-size: 23px;
+}
+
+@media (max-width: 576px) {
+  label{
+    font-size: 18px;
+  }
+  h4{
+    font-size: 23px;
+  }
+}
+
 .todolist{
   margin-top: 70px;
   }
 
+.cancelBtn{
+  background-color: rgb(117, 174, 192);
+}
 
-  .cancelBtn{
-    background-color: rgb(117, 174, 192);
-  }
+.redText{
+  color:#dc3545;
+  font-size:80%;
+}
+

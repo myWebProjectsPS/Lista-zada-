@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmployeeService {
   ClientIP;
-  RemoteBackend='http://backendformean.herokuapp.com/'
+  hash: any;
+  RemoteBackend = 'http://backendformean.herokuapp.com/'
   constructor(private HttpClient: HttpClient) { }
 
 
@@ -17,31 +18,31 @@ export class EmployeeService {
     // let ip=this.ClientIP.split("").reverse().join("");
     console.log("getData ")
     //return this.HttpClient.get('https://backendformean.herokuapp.com/two');
-    return this.HttpClient.get(this.RemoteBackend+'all/' + this.makeHash())//("MEAN1(OO"+ip.replaceAll(".","SO")));
+    return this.HttpClient.get(this.RemoteBackend + 'all/' + this.getHash())//("MEAN1(OO"+ip.replaceAll(".","SO")));
   }
 
   insertData(data) {
     //return this.HttpClient.post('http://itspabackend.herokuapp.com/users',data);
     //return this.HttpClient.post('https://backendformean.herokuapp.com/add',data);
-    return this.HttpClient.post(this.RemoteBackend+'add', data);
+    return this.HttpClient.post(this.RemoteBackend + 'add', data);
   }
 
   getDataById(id) {
     //return this.HttpClient.get('http://localhost:3000/api/employees');
-    return this.HttpClient.get(this.RemoteBackend+'one/' + id + "/" + this.makeHash());
+    return this.HttpClient.get(this.RemoteBackend + 'one/' + id + "/" + this.getHash());
   }
 
   updateData(id, data) {
     //return this.HttpClient.get('http://localhost:3000/api/employees');
     //return this.HttpClient.patch('http://itspabackend.herokuapp.com/users/'+id,data);
-    return this.HttpClient.patch(this.RemoteBackend+'update/' + id, data, this.makeHash());
+    return this.HttpClient.patch(this.RemoteBackend + 'update/' + id, data, this.getHash());
   }
 
   deleteItem(id) {
     //return this.HttpClient.get('http://localhost:3000/api/employees');
     //return this.HttpClient.patch('http://itspabackend.herokuapp.com/users/'+id,data);
     //let idAndHash=[id,this.makeHash()]
-    return this.HttpClient.get(this.RemoteBackend+'delete/' + id + "/" + this.makeHash());
+    return this.HttpClient.get(this.RemoteBackend + 'delete/' + id + "/" + this.getHash());
   }
 
   getIPAddress() {
@@ -65,11 +66,21 @@ export class EmployeeService {
   }
 
   makeHash() {
-    let hash = this.ClientIP.split("").reverse().join("");
-    hash = "MEAN1(OO" + hash.replaceAll(".", "SO");
-    return hash
+    //let hash = this.ClientIP.split("").reverse().join("");
+    //hash = "MEAN1(OO" + hash.replaceAll(".", "SO");
+    this.hash = "MEAN1(OO" + Math.random().toString(36).substr(2, 9) + Math.random();
+    return this.hash
   }
 
+  setHash(hashFromCookie) {
+    this.hash = hashFromCookie;
+  }
+
+  getHash() {
+    //console.log("hash z serv", this.hash)
+    return this.hash
+
+  }
 
 
 }

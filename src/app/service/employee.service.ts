@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeeService {
   ClientIP;
   hash: any;
-  RemoteBackend = 'http://backendformean.herokuapp.com/'
+  RemoteBackend = 'http://backendforlistazadan.herokuapp.com/'
   constructor(private HttpClient: HttpClient) { }
 
 

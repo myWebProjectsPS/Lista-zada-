@@ -31,20 +31,6 @@ export class EmployeeService {
     return this.HttpClient.get(this.RemoteBackend + 'delete/' + id + "/" + this.getHash());
   }
 
-  getIPAddress() {
-    return this.HttpClient.get("http://api.ipify.org/?format=json")
-  }
-
-  setClientIP(ip) {
-    console.log("serrvie jest ip ", ip)
-    this.ClientIP = ip
-  }
-
-
-  getClientIP() {
-    return this.ClientIP;
-  }
-
   makeHash() {
     this.hash = "MEAN1(OO" + Math.random().toString(36).substr(2, 9) + Math.random();
     return this.hash

@@ -25,15 +25,12 @@ export class EmployeeComponent implements OnInit {
       this.getEmployeeData();
     }
     else {
-      this.employeeService.getIPAddress().subscribe(res => {
         let expire = new Date();
         let time = Date.now() + ((3600 * 1000) * 24 * 120);
         expire.setTime(time);
         this.cookieService.set('MEANT0DOL15T', this.employeeService.makeHash(), expire);
         const value = this.cookieService.get('MEANT0DOL15T');
         this.getEmployeeData();
-
-      })
     }
   }
 

@@ -1,11 +1,8 @@
 import { EmployeeService } from 'src/app/service/employee.service';
-//import { EmployeeService } from './../service/employee.service';
 import { ToastrService } from 'ngx-toastr';
-//import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-//import { ThrowStmt } from '@angular/compiler';
 import { Employee } from '../model/employee.model';
 
 
@@ -40,7 +37,6 @@ export class EditEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    //console.log(this.id);
     this.getData();
     this.idInDB = this.EmployeeService.getHash()
     this.today=new Date()
@@ -50,7 +46,6 @@ export class EditEmployeeComponent implements OnInit {
     this.EmployeeService.getDataById(this.id).subscribe(res => {
       this.data = res;
       this.employee = this.data;
-      //console.log("form ", this.data['data'][0].title)
       this.form = new FormGroup({
         title: new FormControl(this.data['data'][0].title, Validators.required),
         description: new FormControl(this.data['data'][0].description, this.employee.description),
@@ -64,8 +59,6 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   get f() {
-    //console.log("get f z editu ",this.form.get('title'));
-   //return this.form.controls;
    return this.form.get('title');
   }
 
@@ -75,7 +68,6 @@ export class EditEmployeeComponent implements OnInit {
     if (this.form.invalid){
       return;
     }
-    //console.log("update: ", this.id, this.form.value)
     this.EmployeeService.updateData(this.id, this.form.value).subscribe(res => {
       this.data = res;
       this.toaster.success("", "Zmiany zostały zapisane", {

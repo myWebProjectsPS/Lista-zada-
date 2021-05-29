@@ -1,6 +1,6 @@
 <div class="container todolist">
   <div class="row justify-content-center my-1 py-0">
-    <h4 >Dodaj zadanie</h4>
+    <h4>Dodaj zadanie</h4>
   </div>
 
   <form (ngSubmit)="insertData()" [formGroup]="form">
@@ -14,7 +14,8 @@
     </div>
     <div class="form-group">
       <label for="email">Opis</label>
-      <input type="email" maxlength="110" formControlName="description" [ngClass]="{'is-invalid':submitted && f.description.errors}" class="form-control" placehoder="Enter email">
+      <input type="email" maxlength="110" formControlName="description"
+        [ngClass]="{'is-invalid':submitted && f.description.errors}" class="form-control" placehoder="Enter email">
       <div *ngIf="submitted&&f.description.errors" class="invalid-feedback">
         <div *ngIf="f.description.errors.required">Pole jest wymagane</div>
         <div *ngIf="f.description.errors.email">Field must be valid</div>
@@ -24,7 +25,8 @@
     </div>
     <div class="form-group">
       <label for="salary">Koszty</label>
-      <input type="text" maxlength="110" formControlName="body" [ngClass]="{'is-invalid':submitted && f.body.errors}" class="form-control" placehoder="Enter salary">
+      <input type="text" maxlength="110" formControlName="body" [ngClass]="{'is-invalid':submitted && f.body.errors}"
+        class="form-control" placehoder="Enter salary">
       <div *ngIf="submitted&&f.body.errors" class="invalid-feedback">
         <div *ngIf="f.body.errors.required">Field is required</div>
       </div>
@@ -33,25 +35,18 @@
     </div>
     <div class="form-group">
       <label for="deadline">Termin końcowy</label>
-      <input type="date" min="{{today|date:'yyyy-MM-dd'}}" formControlName="deadline" [ngClass]="{'is-invalid':submitted && f.body.errors}" class="form-control" >
+      <input type="date" min="{{today|date:'yyyy-MM-dd'}}" formControlName="deadline"
+        [ngClass]="{'is-invalid':submitted && f.body.errors}" class="form-control">
       <div *ngIf="submitted&&f.deadline.errors" class="invalid-feedback">
-        <!-- <div *ngIf="f.deadline.required">Field is required</div> -->
       </div>
     </div>
 
     <div class="d-flex justify-content-around align-items-center">
-      <!-- <div class="btn-group text-center"> -->
-      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edytuj</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary">Usuń</button> -->
-      <!-- </div> -->
-      <button class="btn btn-primary btn-sm my-1" >Zapisz</button>
+      <button class="btn btn-primary btn-sm my-1">Zapisz</button>
       <button class="btn btn-primary btn-sm my-1 cancelBtn" routerLink="/">Anuluj</button>
 
     </div>
 
-    <!-- <div class="form-group">
-      <button class="btn btn-dark btn-sm mt-4">Submit</button>
-    </div> -->
   </form>
 
 </div>
